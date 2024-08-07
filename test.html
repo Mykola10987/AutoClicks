@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="loaded">CLICKS AFTER LOADED</button>
+    <br><br>
+    <div><button id="hover">CLICKS AFTER HOVER</button></div>
+    <br><br>
+    <button id="hovering">CLICKS ONLY HOVERING</button>
+    <br><br>
+    <button id="click">CLICKS AFTER CLICK</button>
+    
+</body>
+<script src="./autoclicks.js"></script>
+<script>
+    let q = new AutoClicks({
+        el: document.querySelector('#hover'),
+        e: 'hover',
+        count: 3,
+        delay: 1000,
+        interval: 1000,
+        loop: true,
+        action: () => {
+            console.log('click after hover')
+        },
+        callback: () => {
+            console.log('CLICKS AFTER HOVER READY')
+        }
+    })
+
+    let qq = new AutoClicks({
+        el: document.querySelector('#click'),
+        e: 'click',
+        count: 3,
+        interval: 1000,
+        loop: true,
+        action: () => {
+            console.log('click after click')
+        },
+        callback: () => {
+            console.log('CLICKS AFTER CLICK READY')
+        }
+    })
+
+    let qqq = new AutoClicks({
+        el: document.querySelector('#hovering'),
+        e: 'hovering',
+        count: 3,
+        interval: 1000,
+        loop: true,
+        action: () => {
+            console.log('click after hovering')
+        },
+        callback: () => {
+            console.log('CLICKS AFTER HOVERING READY')
+        }
+    })
+
+    let qqqq = new AutoClicks({
+        el: document.querySelector('#loaded'),
+        e: 'loaded',
+        count: 3,
+        interval: 1000,
+        callback: () => {
+            console.log('CLICKS AFTER LOADED READY')
+        }
+    })
+</script>
+</html>
